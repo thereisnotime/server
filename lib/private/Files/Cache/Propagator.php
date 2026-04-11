@@ -218,29 +218,32 @@ class Propagator implements IPropagator {
 					$query = $this->connection->getQueryBuilder();
 					$query->update('filecache')
 						->set('mtime', $query->func()->greatest('mtime', $query->createParameter('time')))
-						->set('etag', $query->expr()->literal(uniqid()))
+						->set('etag', $query->createParameter('etag'))
 						->where($query->expr()->eq('storage', $query->createNamedParameter($storageId, IQueryBuilder::PARAM_INT)))
 						->andWhere($query->expr()->eq('fileid', $query->createParameter('fileid')));
 
 					$queryWithSize = $this->connection->getQueryBuilder();
 					$queryWithSize->update('filecache')
 						->set('mtime', $queryWithSize->func()->greatest('mtime', $queryWithSize->createParameter('time')))
-						->set('etag', $queryWithSize->expr()->literal(uniqid()))
+						->set('etag', $queryWithSize->createParameter('etag'))
 						->set('size', $queryWithSize->func()->add('size', $queryWithSize->createParameter('size')))
 						->where($queryWithSize->expr()->eq('storage', $queryWithSize->createNamedParameter($storageId, IQueryBuilder::PARAM_INT)))
 						->andWhere($queryWithSize->expr()->eq('fileid', $queryWithSize->createParameter('fileid')));
 
 					while ($row = $result->fetchAssociative()) {
 						$item = $this->batch[$row['path']];
+						$newEtag = uniqid();
 						if ($item['size'] && $row['size'] > -1) {
 							$queryWithSize->setParameter('fileid', $row['fileid'], IQueryBuilder::PARAM_INT)
 								->setParameter('size', $item['size'], IQueryBuilder::PARAM_INT)
 								->setParameter('time', $item['time'], IQueryBuilder::PARAM_INT)
-								->executeStatement();
+								->setParameter('etag', $newEtag, IQueryBuilder::PARAM_STR);
+							$queryWithSize->executeStatement();
 						} else {
 							$query->setParameter('fileid', $row['fileid'], IQueryBuilder::PARAM_INT)
 								->setParameter('time', $item['time'], IQueryBuilder::PARAM_INT)
-								->executeStatement();
+								->setParameter('etag', $newEtag, IQueryBuilder::PARAM_STR);
+							$query->executeStatement();
 						}
 					}
 				}
@@ -249,28 +252,31 @@ class Propagator implements IPropagator {
 				$query = $this->connection->getQueryBuilder();
 				$query->update('filecache')
 					->set('mtime', $query->func()->greatest('mtime', $query->createParameter('time')))
-					->set('etag', $query->expr()->literal(uniqid()))
+					->set('etag', $query->createParameter('etag'))
 					->where($query->expr()->eq('storage', $query->createNamedParameter($storageId, IQueryBuilder::PARAM_INT)))
 					->andWhere($query->expr()->eq('path_hash', $query->createParameter('hash')));
 
 				$queryWithSize = $this->connection->getQueryBuilder();
 				$queryWithSize->update('filecache')
 					->set('mtime', $queryWithSize->func()->greatest('mtime', $queryWithSize->createParameter('time')))
-					->set('etag', $queryWithSize->expr()->literal(uniqid()))
+					->set('etag', $queryWithSize->createParameter('etag'))
 					->set('size', $queryWithSize->func()->add('size', $queryWithSize->createParameter('size')))
 					->where($queryWithSize->expr()->eq('storage', $queryWithSize->createNamedParameter($storageId, IQueryBuilder::PARAM_INT)))
 					->andWhere($queryWithSize->expr()->eq('path_hash', $queryWithSize->createParameter('hash')));
 
 				foreach ($this->batch as $item) {
+					$newEtag = uniqid();
 					if ($item['size']) {
 						$queryWithSize->setParameter('hash', $item['hash'], IQueryBuilder::PARAM_STR)
 							->setParameter('time', $item['time'], IQueryBuilder::PARAM_INT)
 							->setParameter('size', $item['size'], IQueryBuilder::PARAM_INT)
-							->executeStatement();
+							->setParameter('etag', $newEtag, IQueryBuilder::PARAM_STR);
+						$queryWithSize->executeStatement();
 					} else {
 						$query->setParameter('hash', $item['hash'], IQueryBuilder::PARAM_STR)
 							->setParameter('time', $item['time'], IQueryBuilder::PARAM_INT)
-							->executeStatement();
+							->setParameter('etag', $newEtag, IQueryBuilder::PARAM_STR);
+						$query->executeStatement();
 					}
 				}
 			}
