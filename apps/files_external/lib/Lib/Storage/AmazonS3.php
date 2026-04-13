@@ -608,6 +608,10 @@ class AmazonS3 extends Common {
 			// sub folders
 			if (is_array($result['CommonPrefixes'])) {
 				foreach ($result['CommonPrefixes'] as $prefix) {
+					if (preg_match('/\/{2,}$/', $prefix['Prefix'])) {
+						continue;
+					}
+
 					$dir = $this->getDirectoryMetaData($prefix['Prefix']);
 					if ($dir) {
 						yield $dir;
