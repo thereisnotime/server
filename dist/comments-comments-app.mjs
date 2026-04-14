@@ -1,2 +1,103 @@
-import{l as o}from"./activity-DdSAHrqw.chunk.mjs";import{a as m,t as s}from"./translation-DoG5ZELJ-DJHEP2RB.chunk.mjs";import{c as n}from"./pinia-BrO7AuLF.chunk.mjs";import{e as r}from"./preload-helper-DoJVKVMq.chunk.mjs";import{C as a}from"./FilesSidebarTab-7Od1VwNN.chunk.mjs";import"./index-Bp9-GhMo.chunk.mjs";import"./public-CvthP4YJ.chunk.mjs";import"./index-C1xmmKTZ-B9NwkrZ2.chunk.mjs";import"./NcDialog-nDc1gW50-CpnK8gUQ.chunk.mjs";import"./NcModal-kyWZ3UFC-BxKwwKAq.chunk.mjs";import"./mdi-BUoBIgaz.chunk.mjs";import"./NcIconSvgWrapper-De-2-ukl-CcvQeIAt.chunk.mjs";import"./Web-rJva_rmF.chunk.mjs";import"./TrashCanOutline-D66Xz3gd.chunk.mjs";import"./NcAvatar-ruClKRzS-C0OkDCcs.chunk.mjs";import"./index-CzqMHoWC.chunk.mjs";import"./util-Caafb9Jl.chunk.mjs";import"./colors-BfjxNgsx-Dyl_2CuU.chunk.mjs";import"./NcUserStatusIcon-JWiuiAXe-RsQTD2PO.chunk.mjs";import"./PencilOutline-BzoFsBsK.chunk.mjs";import"./NcDateTime.vue_vue_type_script_setup_true_lang-B4upiZjL-L27IwP9h.chunk.mjs";import"./NcEmptyContent-CDgWCt_m-MnlDvtO9.chunk.mjs";import"./CommentView-BP3FygMe.chunk.mjs";/* empty css                                          */import"./NcUserBubble-BE6yD-R0-aMsD0K5b.chunk.mjs";import"./GetComments-DHvGzfol.chunk.mjs";import"./index-BDmvh1Np.chunk.mjs";class e{app;instance;constructor(t="files",i={}){const p=n();this.app=r(a,{...i.propsData??{},...i.props??{},resourceType:t}),this.app.mixin({data(){return{logger:o}},methods:{t:s,n:m}}),this.app.use(p),i.el&&(this.instance=this.app.mount(i.el))}$mount(t){this.instance&&this.app.unmount(),this.instance=this.app.mount(t)}$unmount(){this.app.unmount(),this.instance=void 0}update(t){this.instance&&this.instance.update(t)}}window.OCA&&!window.OCA.Comments&&Object.assign(window.OCA,{Comments:{}}),Object.assign(window.OCA.Comments,{View:e}),o.debug("OCA.Comments.View initialized");
+const appName = "nextcloud-ui";
+const appVersion = "1.0.0";
+import { l as logger } from "./activity-T1z5SEpQ.chunk.mjs";
+import { a as translatePlural, t as translate } from "./translation-DoG5ZELJ-BjhwdF87.chunk.mjs";
+import { c as createPinia } from "./pinia-QL4zg7IU.chunk.mjs";
+import { e as createApp } from "./Web-DZB3kNgd.chunk.mjs";
+import { C as CommentsApp } from "./FilesSidebarTab-EG-_zLyQ.chunk.mjs";
+import "./index-DzGPUIIw.chunk.mjs";
+import "./public-BOTv8zL5.chunk.mjs";
+import "./util-CV4gl569.chunk.mjs";
+import "./index-C1xmmKTZ-B1s4uv1T.chunk.mjs";
+import "./NcDialog-nDc1gW50-IgYjPKc0.chunk.mjs";
+import "./autolink-U5pBzLgI-Pp1RlhKi.chunk.mjs";
+import "./ArrowRight-Bqdh1jJN.chunk.mjs";
+import "./NcIconSvgWrapper-De-2-ukl-D4fii7IT.chunk.mjs";
+import "./PencilOutline-BpohmyA3.chunk.mjs";
+import "./mdi-DSkVotM5.chunk.mjs";
+import "./NcAvatar-ruClKRzS-DuS7YXf6.chunk.mjs";
+import "./index-BLBICdD3.chunk.mjs";
+import "./colors-BfjxNgsx-DyC4Rnj5.chunk.mjs";
+import "./NcUserStatusIcon-JWiuiAXe-BQbtMEov.chunk.mjs";
+import "./NcActionButton-BuRnYpJX-D8zeIhEM.chunk.mjs";
+import "./NcDateTime.vue_vue_type_script_setup_true_lang-B4upiZjL-CKWCeu2D.chunk.mjs";
+import "./NcEmptyContent-CDgWCt_m-CTXOS_Yk.chunk.mjs";
+import "./CommentView-UxeKj3LJ.chunk.mjs";
+/* empty css                                           */
+import "./NcUserBubble-BE6yD-R0-4_fb61Nk.chunk.mjs";
+import "./GetComments-0XwtoPLA.chunk.mjs";
+import "./index-H1GawPmo.chunk.mjs";
+/*!
+ * SPDX-FileCopyrightText: 2020 Nextcloud GmbH and Nextcloud contributors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+class CommentInstance {
+  app;
+  instance;
+  /**
+   * Initialize a new Comments instance for the desired type
+   *
+   * @param resourceType - The comments endpoint type
+   * @param options - The vue options (props, parent, el...)
+   */
+  constructor(resourceType = "files", options = {}) {
+    const pinia = createPinia();
+    this.app = createApp(
+      CommentsApp,
+      {
+        ...options.propsData ?? {},
+        ...options.props ?? {},
+        resourceType
+      }
+    );
+    this.app.mixin({
+      data() {
+        return {
+          logger
+        };
+      },
+      methods: {
+        t: translate,
+        n: translatePlural
+      }
+    });
+    this.app.use(pinia);
+    if (options.el) {
+      this.instance = this.app.mount(options.el);
+    }
+  }
+  /**
+   * Mount the Comments instance to a new element.
+   *
+   * @param el - The element to mount the instance on
+   */
+  $mount(el) {
+    if (this.instance) {
+      this.app.unmount();
+    }
+    this.instance = this.app.mount(el);
+  }
+  /**
+   * Unmount the Comments instance from the DOM and destroy it.
+   */
+  $unmount() {
+    this.app.unmount();
+    this.instance = void 0;
+  }
+  /**
+   * Update the current resource id.
+   *
+   * @param id - The new resource id to load the comments for
+   */
+  update(id) {
+    if (this.instance) {
+      this.instance.update(id);
+    }
+  }
+}
+if (window.OCA && !window.OCA.Comments) {
+  Object.assign(window.OCA, { Comments: {} });
+}
+Object.assign(window.OCA.Comments, { View: CommentInstance });
+logger.debug("OCA.Comments.View initialized");
 //# sourceMappingURL=comments-comments-app.mjs.map

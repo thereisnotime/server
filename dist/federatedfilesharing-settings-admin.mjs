@@ -1,2 +1,294 @@
-import{l as s,_ as A}from"./public-CvthP4YJ.chunk.mjs";import{b as U,o as g,c,w as i,k as f,u as a,j as p,t as l,h as m,g as h,S as G,e as T}from"./preload-helper-DoJVKVMq.chunk.mjs";import{c as x}from"./index-CzqMHoWC.chunk.mjs";import{a as v,e as b}from"./index-C1xmmKTZ-B9NwkrZ2.chunk.mjs";import{t as e}from"./translation-DoG5ZELJ-DJHEP2RB.chunk.mjs";import{c as C}from"./index-40yxvI8X.chunk.mjs";import{c as D}from"./index-Bp9-GhMo.chunk.mjs";import{N as u}from"./NcCheckboxRadioSwitch-D0gFwEVl-CZhGfPiT.chunk.mjs";import{N as j}from"./ContentCopy-BZd-i-FC.chunk.mjs";import{l as S}from"./logger-BKNNYSvV.chunk.mjs";import"./modulepreload-polyfill-BxzAKjcf.chunk.mjs";import"./util-Caafb9Jl.chunk.mjs";import"./NcDialog-nDc1gW50-CpnK8gUQ.chunk.mjs";import"./NcModal-kyWZ3UFC-BxKwwKAq.chunk.mjs";import"./mdi-BUoBIgaz.chunk.mjs";import"./NcIconSvgWrapper-De-2-ukl-CcvQeIAt.chunk.mjs";import"./Web-rJva_rmF.chunk.mjs";import"./TrashCanOutline-D66Xz3gd.chunk.mjs";import"./NcPasswordField-BOLzDHBJ-DXc0Hn8T.chunk.mjs";import"./NcInputField-CPL-a_MM-DHVwy56P.chunk.mjs";const I={class:"settings-subsection"},q={class:"settings-subsection__name"},F=U({__name:"AdminSettings",setup(R){const E=s("federatedfilesharing","sharingFederatedDocUrl"),y=new Proxy({outgoingServer2serverShareEnabled:[s("federatedfilesharing","outgoingServer2serverShareEnabled"),"outgoing_server2server_share_enabled"],incomingServer2serverShareEnabled:[s("federatedfilesharing","incomingServer2serverShareEnabled"),"incoming_server2server_share_enabled"],outgoingServer2serverGroupShareEnabled:[s("federatedfilesharing","outgoingServer2serverGroupShareEnabled"),"outgoing_server2server_group_share_enabled"],incomingServer2serverGroupShareEnabled:[s("federatedfilesharing","incomingServer2serverGroupShareEnabled"),"incoming_server2server_group_share_enabled"],federatedGroupSharingSupported:[s("federatedfilesharing","federatedGroupSharingSupported"),"federated_group_sharing_supported"],federatedTrustedShareAutoAccept:[s("federatedfilesharing","federatedTrustedShareAutoAccept"),"federatedTrustedShareAutoAccept"],lookupServerEnabled:[s("federatedfilesharing","lookupServerEnabled"),"lookupServerEnabled"],lookupServerUploadEnabled:[s("federatedfilesharing","lookupServerUploadEnabled"),"lookupServerUploadEnabled"]},{get(d,o){return d[o]?.[0]},set(d,o,t){return o in d?(d[o][0]=t,k(d[o][1],t),!0):!1}}),r=G(y);async function _(d){if(d===!1)return r.lookupServerUploadEnabled=!1;await b({name:e("federatedfilesharing","Confirm data upload to lookup server"),text:e("federatedfilesharing",'When enabled, all account properties (e.g. email address) with scope visibility set to "published", will be automatically synced and transmitted to an external system and made available in a public, global address book.'),labelConfirm:e("federatedfilesharing","Enable data upload"),labelReject:e("federatedfilesharing","Disable upload"),severity:"warning"}).then(()=>{r.lookupServerUploadEnabled=!0}).catch(()=>{r.lookupServerUploadEnabled=!1})}async function w(d){if(d===!1)return r.lookupServerEnabled=!1;await b({name:e("federatedfilesharing","Confirm querying lookup server"),text:e("federatedfilesharing","When enabled, the search input when creating shares will be sent to an external system that provides a public and global address book.")+e("federatedfilesharing","This is used to retrieve the federated cloud ID to make federated sharing easier.")+e("federatedfilesharing","Moreover, email addresses of users might be sent to that system in order to verify them."),labelConfirm:e("federatedfilesharing","Enable querying"),labelReject:e("federatedfilesharing","Disable querying"),severity:"warning"}).then(()=>{r.lookupServerEnabled=!0}).catch(()=>{r.lookupServerEnabled=!1})}async function k(d,o){await C();const t=D("/apps/provisioning_api/api/v1/config/apps/{appId}/{key}",{appId:"files_sharing",key:d}),V=o?"yes":"no";try{const{data:n}=await x.post(t,{value:V});if(n.ocs.meta.status!=="ok")if(n.ocs.meta.message)v(n.ocs.meta.message),S.error("Error updating federated files sharing config",{error:n.ocs});else throw new Error(`Failed to update federatedfilesharing config, ${n.ocs.meta.statuscode}`)}catch(n){S.error("Error updating federated files sharing config",{error:n}),v(e("federatedfilesharing","Unable to update federated files sharing config"))}}return(d,o)=>(g(),c(a(j),{name:a(e)("federatedfilesharing","Federated Cloud Sharing"),description:a(e)("federatedfilesharing","Adjust how people can share between servers. This includes shares between people on this server as well if they are using federated sharing."),docUrl:a(E)},{default:i(()=>[f(a(u),{modelValue:r.outgoingServer2serverShareEnabled,"onUpdate:modelValue":o[0]||(o[0]=t=>r.outgoingServer2serverShareEnabled=t),type:"switch"},{default:i(()=>[p(l(a(e)("federatedfilesharing","Allow people on this server to send shares to other servers (this option also allows WebDAV access to public shares)")),1)]),_:1},8,["modelValue"]),f(a(u),{modelValue:r.incomingServer2serverShareEnabled,"onUpdate:modelValue":o[1]||(o[1]=t=>r.incomingServer2serverShareEnabled=t),type:"switch"},{default:i(()=>[p(l(a(e)("federatedfilesharing","Allow people on this server to receive shares from other servers")),1)]),_:1},8,["modelValue"]),r.federatedGroupSharingSupported?(g(),c(a(u),{key:0,modelValue:r.outgoingServer2serverGroupShareEnabled,"onUpdate:modelValue":o[2]||(o[2]=t=>r.outgoingServer2serverGroupShareEnabled=t),type:"switch"},{default:i(()=>[p(l(a(e)("federatedfilesharing","Allow people on this server to send shares to groups on other servers")),1)]),_:1},8,["modelValue"])):m("",!0),r.federatedGroupSharingSupported?(g(),c(a(u),{key:1,modelValue:r.incomingServer2serverGroupShareEnabled,"onUpdate:modelValue":o[3]||(o[3]=t=>r.incomingServer2serverGroupShareEnabled=t),type:"switch"},{default:i(()=>[p(l(a(e)("federatedfilesharing","Allow people on this server to receive group shares from other servers")),1)]),_:1},8,["modelValue"])):m("",!0),h("fieldset",null,[h("legend",null,l(a(e)("federatedfilesharing","The lookup server is only available for global scale.")),1),f(a(u),{type:"switch",modelValue:r.lookupServerEnabled,disabled:"","onUpdate:modelValue":w},{default:i(()=>[p(l(a(e)("federatedfilesharing","Search global and public address book for people")),1)]),_:1},8,["modelValue"]),f(a(u),{type:"switch",modelValue:r.lookupServerUploadEnabled,disabled:"","onUpdate:modelValue":_},{default:i(()=>[p(l(a(e)("federatedfilesharing","Allow people to publish their data to a global and public address book")),1)]),_:1},8,["modelValue"])]),h("div",I,[h("h3",q,l(a(e)("federatedfilesharing","Trusted federation")),1),f(a(u),{modelValue:r.federatedTrustedShareAutoAccept,"onUpdate:modelValue":o[4]||(o[4]=t=>r.federatedTrustedShareAutoAccept=t),type:"switch"},{default:i(()=>[p(l(a(e)("federatedfilesharing","Automatically accept shares from trusted federated accounts and groups by default")),1)]),_:1},8,["modelValue"])])]),_:1},8,["name","description","docUrl"]))}}),W=A(F,[["__scopeId","data-v-71370f43"]]),N=s("federatedfilesharing","internalOnly",!1);N||T(W).mount("#vue-admin-federated");
+const appName = "nextcloud-ui";
+const appVersion = "1.0.0";
+import { l as loadState, _ as _export_sfc } from "./public-BOTv8zL5.chunk.mjs";
+import { b as defineComponent, G as generateOcsUrl, Z as reactive, o as openBlock, c as createBlock, B as withCtx, F as createVNode, k as createTextVNode, t as toDisplayString, i as createCommentVNode, h as createBaseVNode, e as createApp } from "./Web-DZB3kNgd.chunk.mjs";
+import { c as cancelableClient } from "./index-BLBICdD3.chunk.mjs";
+import { a as showError, d as showConfirmation } from "./index-C1xmmKTZ-B1s4uv1T.chunk.mjs";
+import { t as translate } from "./translation-DoG5ZELJ-BjhwdF87.chunk.mjs";
+import { c as confirmPassword } from "./index-D3Hrh1sB.chunk.mjs";
+import { N as NcCheckboxRadioSwitch } from "./NcCheckboxRadioSwitch-D0gFwEVl-D3PT1awv.chunk.mjs";
+import { N as NcSettingsSection } from "./ContentCopy-BsSgMRyn.chunk.mjs";
+import { l as logger } from "./logger-PZFKqFlB.chunk.mjs";
+import "./modulepreload-polyfill-mMY-eDcw.chunk.mjs";
+import "./index-DzGPUIIw.chunk.mjs";
+import "./util-CV4gl569.chunk.mjs";
+import "./NcDialog-nDc1gW50-IgYjPKc0.chunk.mjs";
+import "./autolink-U5pBzLgI-Pp1RlhKi.chunk.mjs";
+import "./ArrowRight-Bqdh1jJN.chunk.mjs";
+import "./NcIconSvgWrapper-De-2-ukl-D4fii7IT.chunk.mjs";
+import "./PencilOutline-BpohmyA3.chunk.mjs";
+import "./mdi-DSkVotM5.chunk.mjs";
+import "./NcPasswordField-BOLzDHBJ-Dl5KIJwG.chunk.mjs";
+import "./NcInputField-CPL-a_MM-WmGmujbb.chunk.mjs";
+const _sfc_main = /* @__PURE__ */ defineComponent({
+  __name: "AdminSettings",
+  setup(__props, { expose: __expose }) {
+    __expose();
+    const sharingFederatedDocUrl = loadState("federatedfilesharing", "sharingFederatedDocUrl");
+    const internalState = new Proxy({
+      outgoingServer2serverShareEnabled: [
+        loadState("federatedfilesharing", "outgoingServer2serverShareEnabled"),
+        "outgoing_server2server_share_enabled"
+      ],
+      incomingServer2serverShareEnabled: [
+        loadState("federatedfilesharing", "incomingServer2serverShareEnabled"),
+        "incoming_server2server_share_enabled"
+      ],
+      outgoingServer2serverGroupShareEnabled: [
+        loadState("federatedfilesharing", "outgoingServer2serverGroupShareEnabled"),
+        "outgoing_server2server_group_share_enabled"
+      ],
+      incomingServer2serverGroupShareEnabled: [
+        loadState("federatedfilesharing", "incomingServer2serverGroupShareEnabled"),
+        "incoming_server2server_group_share_enabled"
+      ],
+      federatedGroupSharingSupported: [
+        loadState("federatedfilesharing", "federatedGroupSharingSupported"),
+        "federated_group_sharing_supported"
+      ],
+      federatedTrustedShareAutoAccept: [
+        loadState("federatedfilesharing", "federatedTrustedShareAutoAccept"),
+        "federatedTrustedShareAutoAccept"
+      ],
+      lookupServerEnabled: [
+        loadState("federatedfilesharing", "lookupServerEnabled"),
+        "lookupServerEnabled"
+      ],
+      lookupServerUploadEnabled: [
+        loadState("federatedfilesharing", "lookupServerUploadEnabled"),
+        "lookupServerUploadEnabled"
+      ]
+    }, {
+      get(target, prop) {
+        return target[prop]?.[0];
+      },
+      set(target, prop, value) {
+        if (prop in target) {
+          target[prop][0] = value;
+          updateAppConfig(target[prop][1], value);
+          return true;
+        }
+        return false;
+      }
+    });
+    const state = reactive(internalState);
+    async function showLookupServerUploadConfirmation(value) {
+      if (value === false) {
+        return state.lookupServerUploadEnabled = false;
+      }
+      await showConfirmation({
+        name: translate("federatedfilesharing", "Confirm data upload to lookup server"),
+        text: translate("federatedfilesharing", 'When enabled, all account properties (e.g. email address) with scope visibility set to "published", will be automatically synced and transmitted to an external system and made available in a public, global address book.'),
+        labelConfirm: translate("federatedfilesharing", "Enable data upload"),
+        labelReject: translate("federatedfilesharing", "Disable upload"),
+        severity: "warning"
+      }).then(() => {
+        state.lookupServerUploadEnabled = true;
+      }).catch(() => {
+        state.lookupServerUploadEnabled = false;
+      });
+    }
+    async function showLookupServerConfirmation(value) {
+      if (value === false) {
+        return state.lookupServerEnabled = false;
+      }
+      await showConfirmation({
+        name: translate("federatedfilesharing", "Confirm querying lookup server"),
+        text: translate("federatedfilesharing", "When enabled, the search input when creating shares will be sent to an external system that provides a public and global address book.") + translate("federatedfilesharing", "This is used to retrieve the federated cloud ID to make federated sharing easier.") + translate("federatedfilesharing", "Moreover, email addresses of users might be sent to that system in order to verify them."),
+        labelConfirm: translate("federatedfilesharing", "Enable querying"),
+        labelReject: translate("federatedfilesharing", "Disable querying"),
+        severity: "warning"
+      }).then(() => {
+        state.lookupServerEnabled = true;
+      }).catch(() => {
+        state.lookupServerEnabled = false;
+      });
+    }
+    async function updateAppConfig(key, value) {
+      await confirmPassword();
+      const url = generateOcsUrl("/apps/provisioning_api/api/v1/config/apps/{appId}/{key}", {
+        appId: "files_sharing",
+        key
+      });
+      const stringValue = value ? "yes" : "no";
+      try {
+        const { data } = await cancelableClient.post(url, {
+          value: stringValue
+        });
+        if (data.ocs.meta.status !== "ok") {
+          if (data.ocs.meta.message) {
+            showError(data.ocs.meta.message);
+            logger.error("Error updating federated files sharing config", { error: data.ocs });
+          } else {
+            throw new Error(`Failed to update federatedfilesharing config, ${data.ocs.meta.statuscode}`);
+          }
+        }
+      } catch (error) {
+        logger.error("Error updating federated files sharing config", { error });
+        showError(translate("federatedfilesharing", "Unable to update federated files sharing config"));
+      }
+    }
+    const __returned__ = { sharingFederatedDocUrl, internalState, state, showLookupServerUploadConfirmation, showLookupServerConfirmation, updateAppConfig, get t() {
+      return translate;
+    }, get NcCheckboxRadioSwitch() {
+      return NcCheckboxRadioSwitch;
+    }, get NcSettingsSection() {
+      return NcSettingsSection;
+    } };
+    Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
+    return __returned__;
+  }
+});
+const _hoisted_1 = { class: "settings-subsection" };
+const _hoisted_2 = { class: "settings-subsection__name" };
+function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
+  return openBlock(), createBlock($setup["NcSettingsSection"], {
+    name: $setup.t("federatedfilesharing", "Federated Cloud Sharing"),
+    description: $setup.t("federatedfilesharing", "Adjust how people can share between servers. This includes shares between people on this server as well if they are using federated sharing."),
+    docUrl: $setup.sharingFederatedDocUrl
+  }, {
+    default: withCtx(() => [
+      createVNode($setup["NcCheckboxRadioSwitch"], {
+        modelValue: $setup.state.outgoingServer2serverShareEnabled,
+        "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => $setup.state.outgoingServer2serverShareEnabled = $event),
+        type: "switch"
+      }, {
+        default: withCtx(() => [
+          createTextVNode(
+            toDisplayString($setup.t("federatedfilesharing", "Allow people on this server to send shares to other servers (this option also allows WebDAV access to public shares)")),
+            1
+            /* TEXT */
+          )
+        ]),
+        _: 1
+        /* STABLE */
+      }, 8, ["modelValue"]),
+      createVNode($setup["NcCheckboxRadioSwitch"], {
+        modelValue: $setup.state.incomingServer2serverShareEnabled,
+        "onUpdate:modelValue": _cache[1] || (_cache[1] = ($event) => $setup.state.incomingServer2serverShareEnabled = $event),
+        type: "switch"
+      }, {
+        default: withCtx(() => [
+          createTextVNode(
+            toDisplayString($setup.t("federatedfilesharing", "Allow people on this server to receive shares from other servers")),
+            1
+            /* TEXT */
+          )
+        ]),
+        _: 1
+        /* STABLE */
+      }, 8, ["modelValue"]),
+      $setup.state.federatedGroupSharingSupported ? (openBlock(), createBlock($setup["NcCheckboxRadioSwitch"], {
+        key: 0,
+        modelValue: $setup.state.outgoingServer2serverGroupShareEnabled,
+        "onUpdate:modelValue": _cache[2] || (_cache[2] = ($event) => $setup.state.outgoingServer2serverGroupShareEnabled = $event),
+        type: "switch"
+      }, {
+        default: withCtx(() => [
+          createTextVNode(
+            toDisplayString($setup.t("federatedfilesharing", "Allow people on this server to send shares to groups on other servers")),
+            1
+            /* TEXT */
+          )
+        ]),
+        _: 1
+        /* STABLE */
+      }, 8, ["modelValue"])) : createCommentVNode("v-if", true),
+      $setup.state.federatedGroupSharingSupported ? (openBlock(), createBlock($setup["NcCheckboxRadioSwitch"], {
+        key: 1,
+        modelValue: $setup.state.incomingServer2serverGroupShareEnabled,
+        "onUpdate:modelValue": _cache[3] || (_cache[3] = ($event) => $setup.state.incomingServer2serverGroupShareEnabled = $event),
+        type: "switch"
+      }, {
+        default: withCtx(() => [
+          createTextVNode(
+            toDisplayString($setup.t("federatedfilesharing", "Allow people on this server to receive group shares from other servers")),
+            1
+            /* TEXT */
+          )
+        ]),
+        _: 1
+        /* STABLE */
+      }, 8, ["modelValue"])) : createCommentVNode("v-if", true),
+      createBaseVNode("fieldset", null, [
+        createBaseVNode(
+          "legend",
+          null,
+          toDisplayString($setup.t("federatedfilesharing", "The lookup server is only available for global scale.")),
+          1
+          /* TEXT */
+        ),
+        createVNode($setup["NcCheckboxRadioSwitch"], {
+          type: "switch",
+          modelValue: $setup.state.lookupServerEnabled,
+          disabled: "",
+          "onUpdate:modelValue": $setup.showLookupServerConfirmation
+        }, {
+          default: withCtx(() => [
+            createTextVNode(
+              toDisplayString($setup.t("federatedfilesharing", "Search global and public address book for people")),
+              1
+              /* TEXT */
+            )
+          ]),
+          _: 1
+          /* STABLE */
+        }, 8, ["modelValue"]),
+        createVNode($setup["NcCheckboxRadioSwitch"], {
+          type: "switch",
+          modelValue: $setup.state.lookupServerUploadEnabled,
+          disabled: "",
+          "onUpdate:modelValue": $setup.showLookupServerUploadConfirmation
+        }, {
+          default: withCtx(() => [
+            createTextVNode(
+              toDisplayString($setup.t("federatedfilesharing", "Allow people to publish their data to a global and public address book")),
+              1
+              /* TEXT */
+            )
+          ]),
+          _: 1
+          /* STABLE */
+        }, 8, ["modelValue"])
+      ]),
+      createCommentVNode(" Trusted server handling "),
+      createBaseVNode("div", _hoisted_1, [
+        createBaseVNode(
+          "h3",
+          _hoisted_2,
+          toDisplayString($setup.t("federatedfilesharing", "Trusted federation")),
+          1
+          /* TEXT */
+        ),
+        createVNode($setup["NcCheckboxRadioSwitch"], {
+          modelValue: $setup.state.federatedTrustedShareAutoAccept,
+          "onUpdate:modelValue": _cache[4] || (_cache[4] = ($event) => $setup.state.federatedTrustedShareAutoAccept = $event),
+          type: "switch"
+        }, {
+          default: withCtx(() => [
+            createTextVNode(
+              toDisplayString($setup.t("federatedfilesharing", "Automatically accept shares from trusted federated accounts and groups by default")),
+              1
+              /* TEXT */
+            )
+          ]),
+          _: 1
+          /* STABLE */
+        }, 8, ["modelValue"])
+      ])
+    ]),
+    _: 1
+    /* STABLE */
+  }, 8, ["name", "description", "docUrl"]);
+}
+const AdminSettings = /* @__PURE__ */ _export_sfc(_sfc_main, [["render", _sfc_render], ["__scopeId", "data-v-26065554"], ["__file", "/home/peter/nextcloud-docker-dev/workspace/server/build/frontend/apps/federatedfilesharing/src/components/AdminSettings.vue"]]);
+/*!
+ * SPDX-FileCopyrightText: 2022 Nextcloud GmbH and Nextcloud contributors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+const internalOnly = loadState("federatedfilesharing", "internalOnly", false);
+if (!internalOnly) {
+  const app = createApp(AdminSettings);
+  app.mount("#vue-admin-federated");
+}
 //# sourceMappingURL=federatedfilesharing-settings-admin.mjs.map

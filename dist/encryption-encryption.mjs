@@ -1,2 +1,29 @@
-import{a as o,b as i}from"./index-Bp9-GhMo.chunk.mjs";import{c as r}from"./index-CzqMHoWC.chunk.mjs";import{s as a}from"./index-C1xmmKTZ-B9NwkrZ2.chunk.mjs";import"./preload-helper-DoJVKVMq.chunk.mjs";import"./util-Caafb9Jl.chunk.mjs";import"./NcDialog-nDc1gW50-CpnK8gUQ.chunk.mjs";import"./NcModal-kyWZ3UFC-BxKwwKAq.chunk.mjs";import"./mdi-BUoBIgaz.chunk.mjs";import"./NcIconSvgWrapper-De-2-ukl-CcvQeIAt.chunk.mjs";import"./translation-DoG5ZELJ-DJHEP2RB.chunk.mjs";import"./public-CvthP4YJ.chunk.mjs";import"./Web-rJva_rmF.chunk.mjs";import"./TrashCanOutline-D66Xz3gd.chunk.mjs";window.addEventListener("DOMContentLoaded",async function(){if(o()===null)return;const{data:t}=await r.get(i("/apps/encryption/ajax/getStatus"));t.status==="interactionNeeded"&&a(t.data.message)});
+const appName = "nextcloud-ui";
+const appVersion = "1.0.0";
+import { a as getCurrentUser } from "./index-DzGPUIIw.chunk.mjs";
+import { c as cancelableClient } from "./index-BLBICdD3.chunk.mjs";
+import { s as showWarning } from "./index-C1xmmKTZ-B1s4uv1T.chunk.mjs";
+import { g as generateUrl } from "./Web-DZB3kNgd.chunk.mjs";
+import "./util-CV4gl569.chunk.mjs";
+import "./NcDialog-nDc1gW50-IgYjPKc0.chunk.mjs";
+import "./autolink-U5pBzLgI-Pp1RlhKi.chunk.mjs";
+import "./ArrowRight-Bqdh1jJN.chunk.mjs";
+import "./NcIconSvgWrapper-De-2-ukl-D4fii7IT.chunk.mjs";
+import "./translation-DoG5ZELJ-BjhwdF87.chunk.mjs";
+import "./public-BOTv8zL5.chunk.mjs";
+import "./PencilOutline-BpohmyA3.chunk.mjs";
+import "./mdi-DSkVotM5.chunk.mjs";
+/*!
+ * SPDX-FileCopyrightText: 2026 Nextcloud GmbH and Nextcloud contributors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+window.addEventListener("DOMContentLoaded", async function() {
+  if (getCurrentUser() === null) {
+    return;
+  }
+  const { data } = await cancelableClient.get(generateUrl("/apps/encryption/ajax/getStatus"));
+  if (data.status === "interactionNeeded") {
+    showWarning(data.data.message);
+  }
+});
 //# sourceMappingURL=encryption-encryption.mjs.map

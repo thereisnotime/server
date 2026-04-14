@@ -1,3 +1,106 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=[window.OC.filePath('', '', 'dist/ActivityCommentAction-Cn4TtwWo.chunk.mjs'),window.OC.filePath('', '', 'dist/index-C1xmmKTZ-B9NwkrZ2.chunk.mjs'),window.OC.filePath('', '', 'dist/preload-helper-DoJVKVMq.chunk.mjs'),window.OC.filePath('', '', 'dist/NcDialog-nDc1gW50-CpnK8gUQ.chunk.mjs'),window.OC.filePath('', '', 'dist/NcModal-kyWZ3UFC-BxKwwKAq.chunk.mjs'),window.OC.filePath('', '', 'dist/mdi-BUoBIgaz.chunk.mjs'),window.OC.filePath('', '', 'dist/NcIconSvgWrapper-De-2-ukl-CcvQeIAt.chunk.mjs'),window.OC.filePath('', '', 'dist/translation-DoG5ZELJ-DJHEP2RB.chunk.mjs'),window.OC.filePath('', '', 'dist/index-Bp9-GhMo.chunk.mjs'),window.OC.filePath('', '', 'dist/NcIconSvgWrapper-De-2-ukl-C_oBIsvc.chunk.css'),window.OC.filePath('', '', 'dist/public-CvthP4YJ.chunk.mjs'),window.OC.filePath('', '', 'dist/mdi-D7L4ZBkR.chunk.css'),window.OC.filePath('', '', 'dist/NcModal-kyWZ3UFC-DgqchLjq.chunk.css'),window.OC.filePath('', '', 'dist/Web-rJva_rmF.chunk.mjs'),window.OC.filePath('', '', 'dist/Web-BYHcrfvW.chunk.css'),window.OC.filePath('', '', 'dist/NcDialog-nDc1gW50-DYA_tnKg.chunk.css'),window.OC.filePath('', '', 'dist/TrashCanOutline-D66Xz3gd.chunk.mjs'),window.OC.filePath('', '', 'dist/TrashCanOutline-Jq77EThs.chunk.css'),window.OC.filePath('', '', 'dist/CommentView-BP3FygMe.chunk.mjs'),window.OC.filePath('', '', 'dist/pinia-BrO7AuLF.chunk.mjs'),window.OC.filePath('', '', 'dist/PencilOutline-BzoFsBsK.chunk.mjs'),window.OC.filePath('', '', 'dist/PencilOutline-DdQinVMt.chunk.css'),window.OC.filePath('', '', 'dist/NcAvatar-ruClKRzS-C0OkDCcs.chunk.mjs'),window.OC.filePath('', '', 'dist/index-CzqMHoWC.chunk.mjs'),window.OC.filePath('', '', 'dist/util-Caafb9Jl.chunk.mjs'),window.OC.filePath('', '', 'dist/colors-BfjxNgsx-Dyl_2CuU.chunk.mjs'),window.OC.filePath('', '', 'dist/NcUserStatusIcon-JWiuiAXe-RsQTD2PO.chunk.mjs'),window.OC.filePath('', '', 'dist/NcUserStatusIcon-JWiuiAXe-Bq_6hmXG.chunk.css'),window.OC.filePath('', '', 'dist/NcDateTime.vue_vue_type_script_setup_true_lang-B4upiZjL-L27IwP9h.chunk.mjs'),window.OC.filePath('', '', 'dist/NcDateTime-DS-ziNw6.chunk.css'),window.OC.filePath('', '', 'dist/NcAvatar-ruClKRzS-CVm1ngoc.chunk.css'),window.OC.filePath('', '', 'dist/NcUserBubble-BE6yD-R0-aMsD0K5b.chunk.mjs'),window.OC.filePath('', '', 'dist/NcUserBubble-BE6yD-R0-f2DD9EAL.chunk.css'),window.OC.filePath('', '', 'dist/activity-DdSAHrqw.chunk.mjs'),window.OC.filePath('', '', 'dist/GetComments-DHvGzfol.chunk.mjs'),window.OC.filePath('', '', 'dist/index-BDmvh1Np.chunk.mjs'),window.OC.filePath('', '', 'dist/CommentView-D9eoYnuL.chunk.css'),window.OC.filePath('', '', 'dist/NcActionSeparator-Ct2RnclR-pXJ_-D_I.chunk.css'),window.OC.filePath('', '', 'dist/comments-ActivityCommentAction-D5Q48MrJ.chunk.css'),window.OC.filePath('', '', 'dist/ActivityCommentEntry-ftYt6e9Q.chunk.mjs'),window.OC.filePath('', '', 'dist/comments-ActivityCommentEntry-CVfnMLz5.chunk.css'),window.OC.filePath('', '', 'dist/FilesSidebarTab-7Od1VwNN.chunk.mjs'),window.OC.filePath('', '', 'dist/NcEmptyContent-CDgWCt_m-MnlDvtO9.chunk.mjs'),window.OC.filePath('', '', 'dist/NcEmptyContent-CDgWCt_m-DoZPzs7J.chunk.css'),window.OC.filePath('', '', 'dist/FilesSidebarTab-D1FhhmK6.chunk.css')])))=>i.map(i=>d[i]);
-import{_ as m,e as c,d as w}from"./preload-helper-DoJVKVMq.chunk.mjs";import{r as _}from"./index-DMw01uN3.chunk.mjs";import{t as g}from"./translation-DoG5ZELJ-DJHEP2RB.chunk.mjs";import{c as l}from"./pinia-BrO7AuLF.chunk.mjs";import{l as r,i as A}from"./activity-DdSAHrqw.chunk.mjs";import{g as v}from"./GetComments-DHvGzfol.chunk.mjs";import"./folder-29HuacU_-GslSi8fz.chunk.mjs";import"./index-Bp9-GhMo.chunk.mjs";import"./util-Caafb9Jl.chunk.mjs";import"./public-CvthP4YJ.chunk.mjs";import"./index-BDmvh1Np.chunk.mjs";const y='<svg xmlns="http://www.w3.org/2000/svg" id="mdi-message-reply-text" viewBox="0 0 24 24"><path d="M18,8H6V6H18V8M18,11H6V9H18V11M18,14H6V12H18V14M22,4A2,2 0 0,0 20,2H4A2,2 0 0,0 2,4V16A2,2 0 0,0 4,18H18L22,22V4Z" /></svg>';function V(){let o;window.OCA.Activity.registerSidebarAction({mount:async(t,{node:e,reload:i})=>{const a=l();if(!o){const{default:s}=await m(async()=>{const{default:n}=await import("./ActivityCommentAction-Cn4TtwWo.chunk.mjs");return{default:n}},__vite__mapDeps([0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38]),import.meta.url);o=c(s,{reloadCallback:i,resourceId:e.fileid})}o.use(a),o.mount(t),r.info("Comments plugin mounted in Activity sidebar action",{node:e})},unmount:()=>{o?.unmount()}}),window.OCA.Activity.registerSidebarEntries(async({node:t,limit:e,offset:i})=>{const{data:a}=await v({resourceType:"files",resourceId:t.fileid},{limit:e,offset:i??0});r.debug("Loaded comments",{node:t,comments:a});const{default:s}=await m(async()=>{const{default:n}=await import("./ActivityCommentEntry-ftYt6e9Q.chunk.mjs");return{default:n}},__vite__mapDeps([39,7,8,18,2,19,20,5,6,9,10,11,4,12,21,22,23,24,25,26,27,28,29,13,14,30,31,32,16,17,1,3,15,33,34,35,36,37,40]),import.meta.url);return a.map(n=>({_CommentsViewInstance:void 0,timestamp:Date.parse(n.props?.creationDateTime??""),mount(f,{reload:p}){const d=c(s,{comment:n,resourceId:t.fileid,reloadCallback:p});d.mount(f),this._CommentsViewInstance=d},unmount(){this._CommentsViewInstance?.unmount()}}))}),window.OCA.Activity.registerSidebarFilter(t=>t.type!=="comments"),r.info("Comments plugin registered for Activity sidebar action")}const u="comments_files-sidebar-tab";A()?window.addEventListener("DOMContentLoaded",function(){V()}):_({id:"comments",displayName:g("comments","Comments"),iconSvgInline:y,order:50,tagName:u,async onInit(){const{default:o}=await m(async()=>{const{default:e}=await import("./FilesSidebarTab-7Od1VwNN.chunk.mjs").then(i=>i.F);return{default:e}},__vite__mapDeps([41,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,22,23,24,25,26,27,20,21,28,29,30,42,43,18,19,31,32,33,34,35,36,37,44]),import.meta.url),t=w(o,{configureApp(e){const i=l();e.use(i)},shadowRoot:!1});window.customElements.define(u,t)}});
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=[window.OC.filePath('', '', 'dist/ActivityCommentAction-CaYKynFk.chunk.mjs'),window.OC.filePath('', '', 'dist/index-C1xmmKTZ-B1s4uv1T.chunk.mjs'),window.OC.filePath('', '', 'dist/Web-DZB3kNgd.chunk.mjs'),window.OC.filePath('', '', 'dist/public-BOTv8zL5.chunk.mjs'),window.OC.filePath('', '', 'dist/NcDialog-nDc1gW50-IgYjPKc0.chunk.mjs'),window.OC.filePath('', '', 'dist/autolink-U5pBzLgI-Pp1RlhKi.chunk.mjs'),window.OC.filePath('', '', 'dist/ArrowRight-Bqdh1jJN.chunk.mjs'),window.OC.filePath('', '', 'dist/NcIconSvgWrapper-De-2-ukl-D4fii7IT.chunk.mjs'),window.OC.filePath('', '', 'dist/translation-DoG5ZELJ-BjhwdF87.chunk.mjs'),window.OC.filePath('', '', 'dist/index-DzGPUIIw.chunk.mjs'),window.OC.filePath('', '', 'dist/NcIconSvgWrapper-De-2-ukl-N3OwSN9O.chunk.css'),window.OC.filePath('', '', 'dist/ArrowRight-CCY9S6Db.chunk.css'),window.OC.filePath('', '', 'dist/autolink-U5pBzLgI-DnbxQPLZ.chunk.css'),window.OC.filePath('', '', 'dist/PencilOutline-BpohmyA3.chunk.mjs'),window.OC.filePath('', '', 'dist/PencilOutline-CWUlo4XY.chunk.css'),window.OC.filePath('', '', 'dist/NcDialog-nDc1gW50-BSV74Bru.chunk.css'),window.OC.filePath('', '', 'dist/mdi-DSkVotM5.chunk.mjs'),window.OC.filePath('', '', 'dist/mdi-DZSuYX4-.chunk.css'),window.OC.filePath('', '', 'dist/CommentView-UxeKj3LJ.chunk.mjs'),window.OC.filePath('', '', 'dist/pinia-QL4zg7IU.chunk.mjs'),window.OC.filePath('', '', 'dist/util-CV4gl569.chunk.mjs'),window.OC.filePath('', '', 'dist/NcActionButton-BuRnYpJX-D8zeIhEM.chunk.mjs'),window.OC.filePath('', '', 'dist/NcActionButton-BuRnYpJX-Bb0ihLdt.chunk.css'),window.OC.filePath('', '', 'dist/NcAvatar-ruClKRzS-DuS7YXf6.chunk.mjs'),window.OC.filePath('', '', 'dist/index-BLBICdD3.chunk.mjs'),window.OC.filePath('', '', 'dist/colors-BfjxNgsx-DyC4Rnj5.chunk.mjs'),window.OC.filePath('', '', 'dist/NcUserStatusIcon-JWiuiAXe-BQbtMEov.chunk.mjs'),window.OC.filePath('', '', 'dist/NcUserStatusIcon-JWiuiAXe-B3aHoBAd.chunk.css'),window.OC.filePath('', '', 'dist/NcDateTime.vue_vue_type_script_setup_true_lang-B4upiZjL-CKWCeu2D.chunk.mjs'),window.OC.filePath('', '', 'dist/NcDateTime-DRcCH7xq.chunk.css'),window.OC.filePath('', '', 'dist/NcAvatar-ruClKRzS-CeBxkemU.chunk.css'),window.OC.filePath('', '', 'dist/NcUserBubble-BE6yD-R0-4_fb61Nk.chunk.mjs'),window.OC.filePath('', '', 'dist/NcUserBubble-BE6yD-R0-DFUmBxeb.chunk.css'),window.OC.filePath('', '', 'dist/activity-T1z5SEpQ.chunk.mjs'),window.OC.filePath('', '', 'dist/GetComments-0XwtoPLA.chunk.mjs'),window.OC.filePath('', '', 'dist/index-H1GawPmo.chunk.mjs'),window.OC.filePath('', '', 'dist/CommentView-DvpacKXo.chunk.css'),window.OC.filePath('', '', 'dist/NcActionSeparator-Ct2RnclR-Ct2RnclR.chunk.css'),window.OC.filePath('', '', 'dist/comments-ActivityCommentAction-D9gKOujr.chunk.css'),window.OC.filePath('', '', 'dist/ActivityCommentEntry-BgwvlYTc.chunk.mjs'),window.OC.filePath('', '', 'dist/comments-ActivityCommentEntry-CVIS8q0P.chunk.css'),window.OC.filePath('', '', 'dist/FilesSidebarTab-EG-_zLyQ.chunk.mjs'),window.OC.filePath('', '', 'dist/NcEmptyContent-CDgWCt_m-CTXOS_Yk.chunk.mjs'),window.OC.filePath('', '', 'dist/NcEmptyContent-CDgWCt_m-CLjlZ-UT.chunk.css'),window.OC.filePath('', '', 'dist/FilesSidebarTab-Czu8KEIy.chunk.css')])))=>i.map(i=>d[i]);
+const appName = "nextcloud-ui";
+const appVersion = "1.0.0";
+import { _ as __vitePreload, e as createApp, d as defineCustomElement } from "./Web-DZB3kNgd.chunk.mjs";
+import { r as registerSidebarTab } from "./index-DUU0M62x.chunk.mjs";
+import { t as translate } from "./translation-DoG5ZELJ-BjhwdF87.chunk.mjs";
+import { c as createPinia } from "./pinia-QL4zg7IU.chunk.mjs";
+import { l as logger, i as isUsingActivityIntegration } from "./activity-T1z5SEpQ.chunk.mjs";
+import { g as getComments } from "./GetComments-0XwtoPLA.chunk.mjs";
+import "./public-BOTv8zL5.chunk.mjs";
+import "./folder-29HuacU_-BePENw3G.chunk.mjs";
+import "./index-DzGPUIIw.chunk.mjs";
+import "./util-CV4gl569.chunk.mjs";
+import "./index-H1GawPmo.chunk.mjs";
+const MessageReplyText = '<svg xmlns="http://www.w3.org/2000/svg" id="mdi-message-reply-text" viewBox="0 0 24 24"><path d="M18,8H6V6H18V8M18,11H6V9H18V11M18,14H6V12H18V14M22,4A2,2 0 0,0 20,2H4A2,2 0 0,0 2,4V16A2,2 0 0,0 4,18H18L22,22V4Z" /></svg>';
+function registerCommentsPlugins() {
+  let app;
+  window.OCA.Activity.registerSidebarAction({
+    mount: async (el, { node, reload }) => {
+      const pinia = createPinia();
+      if (!app) {
+        const { default: ActivityCommentAction } = await __vitePreload(async () => {
+          const { default: ActivityCommentAction2 } = await import("./ActivityCommentAction-CaYKynFk.chunk.mjs");
+          return { default: ActivityCommentAction2 };
+        }, true ? __vite__mapDeps([0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38]) : void 0, import.meta.url);
+        app = createApp(
+          ActivityCommentAction,
+          {
+            reloadCallback: reload,
+            resourceId: node.fileid
+          }
+        );
+      }
+      app.use(pinia);
+      app.mount(el);
+      logger.info("Comments plugin mounted in Activity sidebar action", { node });
+    },
+    unmount: () => {
+      app?.unmount();
+    }
+  });
+  window.OCA.Activity.registerSidebarEntries(async ({ node, limit, offset }) => {
+    const { data: comments } = await getComments(
+      { resourceType: "files", resourceId: node.fileid },
+      {
+        limit,
+        offset: offset ?? 0
+      }
+    );
+    logger.debug("Loaded comments", { node, comments });
+    const { default: CommentView } = await __vitePreload(async () => {
+      const { default: CommentView2 } = await import("./ActivityCommentEntry-BgwvlYTc.chunk.mjs");
+      return { default: CommentView2 };
+    }, true ? __vite__mapDeps([39,8,9,18,2,3,19,20,21,6,7,10,11,5,12,22,23,24,25,26,27,28,29,13,14,30,31,32,1,4,15,16,17,33,34,35,36,37,40]) : void 0, import.meta.url);
+    return comments.map((comment) => ({
+      _CommentsViewInstance: void 0,
+      timestamp: Date.parse(comment.props?.creationDateTime ?? ""),
+      mount(element, { reload }) {
+        const app2 = createApp(
+          CommentView,
+          {
+            comment,
+            resourceId: node.fileid,
+            reloadCallback: reload
+          }
+        );
+        app2.mount(element);
+        this._CommentsViewInstance = app2;
+      },
+      unmount() {
+        this._CommentsViewInstance?.unmount();
+      }
+    }));
+  });
+  window.OCA.Activity.registerSidebarFilter((activity) => activity.type !== "comments");
+  logger.info("Comments plugin registered for Activity sidebar action");
+}
+const tagName = "comments_files-sidebar-tab";
+if (isUsingActivityIntegration()) {
+  window.addEventListener("DOMContentLoaded", function() {
+    registerCommentsPlugins();
+  });
+} else {
+  registerSidebarTab({
+    id: "comments",
+    displayName: translate("comments", "Comments"),
+    iconSvgInline: MessageReplyText,
+    order: 50,
+    tagName,
+    async onInit() {
+      const { default: FilesSidebarTab } = await __vitePreload(async () => {
+        const { default: FilesSidebarTab2 } = await import("./FilesSidebarTab-EG-_zLyQ.chunk.mjs").then((n) => n.F);
+        return { default: FilesSidebarTab2 };
+      }, true ? __vite__mapDeps([41,2,3,1,4,5,6,7,8,9,10,11,12,13,14,15,16,17,23,24,20,25,26,27,21,22,28,29,30,42,43,18,19,31,32,33,34,35,36,37,44]) : void 0, import.meta.url);
+      const FilesSidebarTabElement = defineCustomElement(FilesSidebarTab, {
+        configureApp(app) {
+          const pinia = createPinia();
+          app.use(pinia);
+        },
+        shadowRoot: false
+      });
+      window.customElements.define(tagName, FilesSidebarTabElement);
+    }
+  });
+}
 //# sourceMappingURL=comments-comments-tab.mjs.map

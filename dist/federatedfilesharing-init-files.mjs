@@ -1,2 +1,191 @@
-import{c as d,i as _}from"./index-CzqMHoWC.chunk.mjs";import{b as y,a as u}from"./index-C1xmmKTZ-B9NwkrZ2.chunk.mjs";import{s as b,b as m}from"./index-Bp9-GhMo.chunk.mjs";import{_ as R,l as D}from"./public-CvthP4YJ.chunk.mjs";import{t}from"./translation-DoG5ZELJ-DJHEP2RB.chunk.mjs";import{N as v,s as S}from"./NcDialog-nDc1gW50-CpnK8gUQ.chunk.mjs";import{N as F}from"./NcPasswordField-BOLzDHBJ-DXc0Hn8T.chunk.mjs";import{b as O,o as f,c as h,w as k,g as C,t as P,u as i,F as q,h as x,l as N,D as E}from"./preload-helper-DoJVKVMq.chunk.mjs";import{l as M}from"./logger-BKNNYSvV.chunk.mjs";import"./util-Caafb9Jl.chunk.mjs";import"./NcIconSvgWrapper-De-2-ukl-CcvQeIAt.chunk.mjs";import"./TrashCanOutline-D66Xz3gd.chunk.mjs";import"./mdi-BUoBIgaz.chunk.mjs";import"./NcModal-kyWZ3UFC-BxKwwKAq.chunk.mjs";import"./Web-rJva_rmF.chunk.mjs";import"./NcInputField-CPL-a_MM-DHVwy56P.chunk.mjs";const T=O({__name:"RemoteShareDialog",props:{name:{},owner:{},remote:{},passwordRequired:{type:Boolean}},emits:["close"],setup(e,{emit:r}){const s=e,a=r,o=N(""),n=E(()=>[{label:t("federatedfilesharing","Cancel"),callback:()=>a("close",!1)},{label:t("federatedfilesharing","Add remote share"),type:s.passwordRequired?"submit":void 0,variant:"primary",callback:()=>a("close",!0,o.value)}]);return(p,l)=>(f(),h(i(v),{buttons:n.value,isForm:e.passwordRequired,name:i(t)("federatedfilesharing","Remote share"),onSubmit:l[1]||(l[1]=w=>a("close",!0,o.value))},{default:k(()=>[C("p",null,P(i(t)("federatedfilesharing","Do you want to add the remote share {name} from {owner}@{remote}?",{name:e.name,owner:e.owner,remote:e.remote})),1),e.passwordRequired?(f(),h(i(F),{key:0,modelValue:o.value,"onUpdate:modelValue":l[0]||(l[0]=w=>o.value=w),class:q(p.$style.remoteShareDialog__password),label:i(t)("federatedfilesharing","Remote share password")},null,8,["modelValue","class","label"])):x("",!0)]),_:1},8,["buttons","isForm","name"]))}}),U="_remoteShareDialog__password_1ccpy_2",V={remoteShareDialog__password:U},$={$style:V},j=R(T,[["__cssModules",$]]);async function I(e,r,s,a=!1){const[o,n]=await S(j,{name:e,owner:r,remote:s,passwordRequired:a});if(a&&o)return n;if(!o)throw new Error("Dialog was cancelled")}window.addEventListener("DOMContentLoaded",()=>{L(),D("federatedfilesharing","notificationsEnabled",!0)!==!0&&A(),b("notifications:action:executed",({action:e,notification:r})=>{r.app==="files_sharing"&&r.object_type==="remote_share"&&e.type==="POST"&&c()})});function c(){if(!window?.OCP?.Files?.Router?.goToRoute){window.location.reload();return}window.OCP.Files.Router.goToRoute(null,{...window.OCP.Files.Router.params,fileid:void 0},{...window.OCP.Files.Router.query,dir:"/",openfile:void 0})}function L(){const e=window.OC.Util.History.parseUrlQuery();if(e.remote&&e.token&&e.name){const r=(s,a)=>{s!==!1&&d.post(m("apps/federatedfilesharing/askForFederatedShare"),{remote:a.remote,token:a.token,owner:a.owner,ownerDisplayName:a.ownerDisplayName||a.owner,name:a.name,password:a.password||""}).then(({data:o})=>{Object.hasOwn(o,"legacyMount")?c():y(o.message)}).catch(o=>{M.error("Error while processing incoming share",{error:o}),_(o)&&o.response.data.message?u(o.response.data.message):u(t("federatedfilesharing","Incoming share could not be processed"))})};location.hash="",e.passwordProtected=parseInt(e.protected,10)===1,g(e,e.passwordProtected,r)}}async function A(){const{data:e}=await d.get(m("/apps/files_sharing/api/externalShares"));for(let r=0;r<e.length;++r)g(e[r],!1,function(s,a){s===!1?d.delete(m("/apps/files_sharing/api/externalShares/"+a.id)):d.post(m("/apps/files_sharing/api/externalShares"),{id:a.id}).then(()=>c())})}function g(e,r,s){const a=e.ownerDisplayName||e.owner,o=e.name,n=e.remote.replace(/^https?:\/\//,"").replace(/\/$/,"");I(o,a,n,r).then(p=>s(!0,{...e,password:p})).catch(()=>s(!1,e))}
+const appName = "nextcloud-ui";
+const appVersion = "1.0.0";
+import { c as cancelableClient, i as isAxiosError } from "./index-BLBICdD3.chunk.mjs";
+import { b as showInfo, a as showError } from "./index-C1xmmKTZ-B1s4uv1T.chunk.mjs";
+import { s as subscribe } from "./index-DzGPUIIw.chunk.mjs";
+import { _ as _export_sfc, l as loadState } from "./public-BOTv8zL5.chunk.mjs";
+import { t as translate } from "./translation-DoG5ZELJ-BjhwdF87.chunk.mjs";
+import { b as defineComponent, z as computed, H as ref, o as openBlock, c as createBlock, B as withCtx, h as createBaseVNode, t as toDisplayString, E as normalizeClass, i as createCommentVNode, g as generateUrl } from "./Web-DZB3kNgd.chunk.mjs";
+import { N as NcDialog, s as spawnDialog } from "./NcDialog-nDc1gW50-IgYjPKc0.chunk.mjs";
+import { N as NcPasswordField } from "./NcPasswordField-BOLzDHBJ-Dl5KIJwG.chunk.mjs";
+import { l as logger } from "./logger-PZFKqFlB.chunk.mjs";
+import "./util-CV4gl569.chunk.mjs";
+import "./NcIconSvgWrapper-De-2-ukl-D4fii7IT.chunk.mjs";
+import "./mdi-DSkVotM5.chunk.mjs";
+import "./ArrowRight-Bqdh1jJN.chunk.mjs";
+import "./autolink-U5pBzLgI-Pp1RlhKi.chunk.mjs";
+import "./PencilOutline-BpohmyA3.chunk.mjs";
+import "./NcInputField-CPL-a_MM-WmGmujbb.chunk.mjs";
+const _sfc_main = /* @__PURE__ */ defineComponent({
+  __name: "RemoteShareDialog",
+  props: {
+    name: { type: String, required: true },
+    owner: { type: String, required: true },
+    remote: { type: String, required: true },
+    passwordRequired: { type: Boolean, required: true }
+  },
+  emits: ["close"],
+  setup(__props, { expose: __expose, emit: __emit }) {
+    __expose();
+    const props = __props;
+    const emit = __emit;
+    const password = ref("");
+    const buttons = computed(() => [
+      {
+        label: translate("federatedfilesharing", "Cancel"),
+        callback: () => emit("close", false)
+      },
+      {
+        label: translate("federatedfilesharing", "Add remote share"),
+        type: props.passwordRequired ? "submit" : void 0,
+        variant: "primary",
+        callback: () => emit("close", true, password.value)
+      }
+    ]);
+    const __returned__ = { props, emit, password, buttons, get t() {
+      return translate;
+    }, get NcDialog() {
+      return NcDialog;
+    }, get NcPasswordField() {
+      return NcPasswordField;
+    } };
+    Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
+    return __returned__;
+  }
+});
+const remoteShareDialog__password = "_remoteShareDialog__password_1ccpy_2";
+const style0 = {
+  remoteShareDialog__password
+};
+function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
+  return openBlock(), createBlock($setup["NcDialog"], {
+    buttons: $setup.buttons,
+    isForm: $props.passwordRequired,
+    name: $setup.t("federatedfilesharing", "Remote share"),
+    onSubmit: _cache[1] || (_cache[1] = ($event) => $setup.emit("close", true, $setup.password))
+  }, {
+    default: withCtx(() => [
+      createBaseVNode(
+        "p",
+        null,
+        toDisplayString($setup.t("federatedfilesharing", "Do you want to add the remote share {name} from {owner}@{remote}?", { name: $props.name, owner: $props.owner, remote: $props.remote })),
+        1
+        /* TEXT */
+      ),
+      $props.passwordRequired ? (openBlock(), createBlock($setup["NcPasswordField"], {
+        key: 0,
+        modelValue: $setup.password,
+        "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => $setup.password = $event),
+        class: normalizeClass(_ctx.$style.remoteShareDialog__password),
+        label: $setup.t("federatedfilesharing", "Remote share password")
+      }, null, 8, ["modelValue", "class", "label"])) : createCommentVNode("v-if", true)
+    ]),
+    _: 1
+    /* STABLE */
+  }, 8, ["buttons", "isForm", "name"]);
+}
+const cssModules = {
+  "$style": style0
+};
+const RemoteShareDialog = /* @__PURE__ */ _export_sfc(_sfc_main, [["render", _sfc_render], ["__cssModules", cssModules], ["__file", "/home/peter/nextcloud-docker-dev/workspace/server/build/frontend/apps/federatedfilesharing/src/components/RemoteShareDialog.vue"]]);
+async function showRemoteShareDialog(name, owner, remote, passwordRequired = false) {
+  const [status, password] = await spawnDialog(RemoteShareDialog, {
+    name,
+    owner,
+    remote,
+    passwordRequired
+  });
+  if (passwordRequired && status) {
+    return password;
+  } else if (status) {
+    return;
+  } else {
+    throw new Error("Dialog was cancelled");
+  }
+}
+window.addEventListener("DOMContentLoaded", () => {
+  processIncomingShareFromUrl();
+  if (loadState("federatedfilesharing", "notificationsEnabled", true) !== true) {
+    processSharesToConfirm();
+  }
+  subscribe("notifications:action:executed", ({ action, notification }) => {
+    if (notification.app === "files_sharing" && notification.object_type === "remote_share" && action.type === "POST") {
+      reloadFilesList();
+    }
+  });
+});
+function reloadFilesList() {
+  if (!window?.OCP?.Files?.Router?.goToRoute) {
+    window.location.reload();
+    return;
+  }
+  window.OCP.Files.Router.goToRoute(
+    null,
+    { ...window.OCP.Files.Router.params, fileid: void 0 },
+    { ...window.OCP.Files.Router.query, dir: "/", openfile: void 0 }
+  );
+}
+function processIncomingShareFromUrl() {
+  const params = window.OC.Util.History.parseUrlQuery();
+  if (params.remote && params.token && params.name) {
+    const callbackAddShare = (result, share) => {
+      if (result === false) {
+        return;
+      }
+      cancelableClient.post(
+        generateUrl("apps/federatedfilesharing/askForFederatedShare"),
+        {
+          remote: share.remote,
+          token: share.token,
+          owner: share.owner,
+          ownerDisplayName: share.ownerDisplayName || share.owner,
+          name: share.name,
+          password: share.password || ""
+        }
+      ).then(({ data }) => {
+        if (Object.hasOwn(data, "legacyMount")) {
+          reloadFilesList();
+        } else {
+          showInfo(data.message);
+        }
+      }).catch((error) => {
+        logger.error("Error while processing incoming share", { error });
+        if (isAxiosError(error) && error.response.data.message) {
+          showError(error.response.data.message);
+        } else {
+          showError(translate("federatedfilesharing", "Incoming share could not be processed"));
+        }
+      });
+    };
+    location.hash = "";
+    params.passwordProtected = parseInt(params.protected, 10) === 1;
+    showAddExternalDialog(
+      params,
+      params.passwordProtected,
+      callbackAddShare
+    );
+  }
+}
+async function processSharesToConfirm() {
+  const { data: shares } = await cancelableClient.get(generateUrl("/apps/files_sharing/api/externalShares"));
+  for (let index = 0; index < shares.length; ++index) {
+    showAddExternalDialog(
+      shares[index],
+      false,
+      function(result, share) {
+        if (result === false) {
+          cancelableClient.delete(generateUrl("/apps/files_sharing/api/externalShares/" + share.id));
+        } else {
+          cancelableClient.post(generateUrl("/apps/files_sharing/api/externalShares"), { id: share.id }).then(() => reloadFilesList());
+        }
+      }
+    );
+  }
+}
+function showAddExternalDialog(share, passwordProtected, callback) {
+  const owner = share.ownerDisplayName || share.owner;
+  const name = share.name;
+  const remote = share.remote.replace(/^https?:\/\//, "").replace(/\/$/, "");
+  showRemoteShareDialog(name, owner, remote, passwordProtected).then((password) => callback(true, { ...share, password })).catch(() => callback(false, share));
+}
 //# sourceMappingURL=federatedfilesharing-init-files.mjs.map

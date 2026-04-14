@@ -1,2 +1,121 @@
-import{r as p,o as u,c as b,w as i,k as l,j as m,t as d,e as f}from"./preload-helper-DoJVKVMq.chunk.mjs";import{c as w}from"./index-CzqMHoWC.chunk.mjs";import{a as g}from"./index-C1xmmKTZ-B9NwkrZ2.chunk.mjs";import{_ as S,l as c}from"./public-CvthP4YJ.chunk.mjs";import{t as h}from"./translation-DoG5ZELJ-DJHEP2RB.chunk.mjs";import{c as I}from"./index-40yxvI8X.chunk.mjs";import{g as k,c as M}from"./index-Bp9-GhMo.chunk.mjs";import{N}from"./NcCheckboxRadioSwitch-D0gFwEVl-CZhGfPiT.chunk.mjs";import{N as R}from"./ContentCopy-BZd-i-FC.chunk.mjs";import"./util-Caafb9Jl.chunk.mjs";import"./NcDialog-nDc1gW50-CpnK8gUQ.chunk.mjs";import"./NcModal-kyWZ3UFC-BxKwwKAq.chunk.mjs";import"./mdi-BUoBIgaz.chunk.mjs";import"./NcIconSvgWrapper-De-2-ukl-CcvQeIAt.chunk.mjs";import"./Web-rJva_rmF.chunk.mjs";import"./TrashCanOutline-D66Xz3gd.chunk.mjs";import"./NcPasswordField-BOLzDHBJ-DXc0Hn8T.chunk.mjs";import"./NcInputField-CPL-a_MM-DHVwy56P.chunk.mjs";const T=k().detectLogLevel().setApp("sharebymail").build(),V={name:"AdminSettings",components:{NcCheckboxRadioSwitch:N,NcSettingsSection:R},setup(){return{t:h}},data(){return{sendPasswordMail:c("sharebymail","sendPasswordMail"),replyToInitiator:c("sharebymail","replyToInitiator")}},watch:{sendPasswordMail(t){this.update("sendpasswordmail",t)},replyToInitiator(t){this.update("replyToInitiator",t)}},methods:{async update(t,a){await I();const s=M("/apps/provisioning_api/api/v1/config/apps/{appId}/{key}",{appId:"sharebymail",key:t}),o=a?"yes":"no";try{const{data:e}=await w.post(s,{value:o});this.handleResponse({status:e.ocs?.meta?.status})}catch(e){this.handleResponse({errorMessage:h("sharebymail","Unable to update share by mail config"),error:e})}},async handleResponse({status:t,errorMessage:a,error:s}){t!=="ok"&&(g(a),T.error(a,{error:s}))}}};function v(t,a,s,o,e,x){const n=p("NcCheckboxRadioSwitch"),y=p("NcSettingsSection");return u(),b(y,{name:o.t("sharebymail","Share by mail"),description:o.t("sharebymail","Allows people to share a personalized link to a file or folder by putting in an email address.")},{default:i(()=>[l(n,{modelValue:e.sendPasswordMail,"onUpdate:modelValue":a[0]||(a[0]=r=>e.sendPasswordMail=r),type:"switch"},{default:i(()=>[m(d(o.t("sharebymail","Send password by mail")),1)]),_:1},8,["modelValue"]),l(n,{modelValue:e.replyToInitiator,"onUpdate:modelValue":a[1]||(a[1]=r=>e.replyToInitiator=r),type:"switch"},{default:i(()=>[m(d(o.t("sharebymail","Reply to initiator")),1)]),_:1},8,["modelValue"])]),_:1},8,["name","description"])}const P=S(V,[["render",v]]),_=f(P);_.mount("#vue-admin-sharebymail");
+const appName = "nextcloud-ui";
+const appVersion = "1.0.0";
+import { r as resolveComponent, o as openBlock, c as createBlock, B as withCtx, F as createVNode, k as createTextVNode, t as toDisplayString, G as generateOcsUrl, e as createApp } from "./Web-DZB3kNgd.chunk.mjs";
+import { c as cancelableClient } from "./index-BLBICdD3.chunk.mjs";
+import { a as showError } from "./index-C1xmmKTZ-B1s4uv1T.chunk.mjs";
+import { _ as _export_sfc, l as loadState } from "./public-BOTv8zL5.chunk.mjs";
+import { t as translate } from "./translation-DoG5ZELJ-BjhwdF87.chunk.mjs";
+import { c as confirmPassword } from "./index-D3Hrh1sB.chunk.mjs";
+import { N as NcCheckboxRadioSwitch } from "./NcCheckboxRadioSwitch-D0gFwEVl-D3PT1awv.chunk.mjs";
+import { N as NcSettingsSection } from "./ContentCopy-BsSgMRyn.chunk.mjs";
+import { g as getLoggerBuilder } from "./index-DzGPUIIw.chunk.mjs";
+import "./util-CV4gl569.chunk.mjs";
+import "./NcDialog-nDc1gW50-IgYjPKc0.chunk.mjs";
+import "./autolink-U5pBzLgI-Pp1RlhKi.chunk.mjs";
+import "./ArrowRight-Bqdh1jJN.chunk.mjs";
+import "./NcIconSvgWrapper-De-2-ukl-D4fii7IT.chunk.mjs";
+import "./PencilOutline-BpohmyA3.chunk.mjs";
+import "./mdi-DSkVotM5.chunk.mjs";
+import "./NcPasswordField-BOLzDHBJ-Dl5KIJwG.chunk.mjs";
+import "./NcInputField-CPL-a_MM-WmGmujbb.chunk.mjs";
+const logger = getLoggerBuilder().detectLogLevel().setApp("sharebymail").build();
+const _sfc_main = {
+  name: "AdminSettings",
+  components: {
+    NcCheckboxRadioSwitch,
+    NcSettingsSection
+  },
+  setup() {
+    return { t: translate };
+  },
+  data() {
+    return {
+      sendPasswordMail: loadState("sharebymail", "sendPasswordMail"),
+      replyToInitiator: loadState("sharebymail", "replyToInitiator")
+    };
+  },
+  watch: {
+    sendPasswordMail(newValue) {
+      this.update("sendpasswordmail", newValue);
+    },
+    replyToInitiator(newValue) {
+      this.update("replyToInitiator", newValue);
+    }
+  },
+  methods: {
+    async update(key, value) {
+      await confirmPassword();
+      const url = generateOcsUrl("/apps/provisioning_api/api/v1/config/apps/{appId}/{key}", {
+        appId: "sharebymail",
+        key
+      });
+      const stringValue = value ? "yes" : "no";
+      try {
+        const { data } = await cancelableClient.post(url, {
+          value: stringValue
+        });
+        this.handleResponse({
+          status: data.ocs?.meta?.status
+        });
+      } catch (e) {
+        this.handleResponse({
+          errorMessage: translate("sharebymail", "Unable to update share by mail config"),
+          error: e
+        });
+      }
+    },
+    async handleResponse({ status, errorMessage, error }) {
+      if (status !== "ok") {
+        showError(errorMessage);
+        logger.error(errorMessage, { error });
+      }
+    }
+  }
+};
+function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
+  const _component_NcCheckboxRadioSwitch = resolveComponent("NcCheckboxRadioSwitch");
+  const _component_NcSettingsSection = resolveComponent("NcSettingsSection");
+  return openBlock(), createBlock(_component_NcSettingsSection, {
+    name: $setup.t("sharebymail", "Share by mail"),
+    description: $setup.t("sharebymail", "Allows people to share a personalized link to a file or folder by putting in an email address.")
+  }, {
+    default: withCtx(() => [
+      createVNode(_component_NcCheckboxRadioSwitch, {
+        modelValue: $data.sendPasswordMail,
+        "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => $data.sendPasswordMail = $event),
+        type: "switch"
+      }, {
+        default: withCtx(() => [
+          createTextVNode(
+            toDisplayString($setup.t("sharebymail", "Send password by mail")),
+            1
+            /* TEXT */
+          )
+        ]),
+        _: 1
+        /* STABLE */
+      }, 8, ["modelValue"]),
+      createVNode(_component_NcCheckboxRadioSwitch, {
+        modelValue: $data.replyToInitiator,
+        "onUpdate:modelValue": _cache[1] || (_cache[1] = ($event) => $data.replyToInitiator = $event),
+        type: "switch"
+      }, {
+        default: withCtx(() => [
+          createTextVNode(
+            toDisplayString($setup.t("sharebymail", "Reply to initiator")),
+            1
+            /* TEXT */
+          )
+        ]),
+        _: 1
+        /* STABLE */
+      }, 8, ["modelValue"])
+    ]),
+    _: 1
+    /* STABLE */
+  }, 8, ["name", "description"]);
+}
+const AdminSettings = /* @__PURE__ */ _export_sfc(_sfc_main, [["render", _sfc_render], ["__file", "/home/peter/nextcloud-docker-dev/workspace/server/build/frontend/apps/sharebymail/src/components/AdminSettings.vue"]]);
+const app = createApp(AdminSettings);
+app.mount("#vue-admin-sharebymail");
 //# sourceMappingURL=sharebymail-admin-settings.mjs.map
